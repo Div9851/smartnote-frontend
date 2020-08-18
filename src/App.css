@@ -42,7 +42,7 @@
 }
 
 .hit-note:hover {
-  opacity: 60%;
+  opacity: 0.8;
 }
 
 .updated-at {
