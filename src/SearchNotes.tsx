@@ -44,6 +44,7 @@ function SearchNotes() {
       if (response.status !== 200) {
         alert("検索に失敗しました");
         console.error(`${response.status}: ${response.statusText}`);
+        return;
       }
       const responseData = await response.json();
 
@@ -53,6 +54,7 @@ function SearchNotes() {
     } catch (error) {
       alert("検索に失敗しました");
       console.error(error);
+      return;
     }
   };
 
