@@ -7,14 +7,13 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import * as serviceWorker from "./serviceWorker";
 import "semantic-ui-css/semantic.min.css";
 import "easymde/dist/easymde.min.css";
-import config from "./auth_config.json";
 
 ReactDOM.render(
   <Auth0Provider
-    domain={config.domain}
-    clientId={config.clientID}
+    domain={process.env.REACT_APP_AUTH0_DOMAIN as string}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID as string}
     redirectUri={window.location.origin}
-    audience={config.audience}
+    audience={process.env.REACT_APP_AUTH0_AUDIENCE as string}
   >
     <React.StrictMode>
       <App />
