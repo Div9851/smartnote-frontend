@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useParams, withRouter } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import SimpleMDE from "react-simplemde-editor";
+import DeleteModal from "./DeleteModal";
 
 export default withRouter(EditNote);
 
@@ -79,7 +80,35 @@ function EditNote(props: any) {
       console.error(error);
       return;
     }
-    history.push("/post_complete");
+    alert("メモを保存しました！");
+    history.push("/");
+  };
+
+  const handleDelete = async () => {
+    try {
+      const token = await getAccessTokenSilently();
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/notes/" + noteID,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.status !== 200) {
+        alert("メモの削除に失敗しました");
+        console.error(`${response.status}: ${response.statusText}`);
+        return;
+      }
+    } catch (error) {
+      alert("メモの削除に失敗しました");
+      console.error(error);
+      return;
+    }
+    alert("メモを削除しました");
+    history.push("/");
   };
 
   return (
@@ -89,6 +118,14 @@ function EditNote(props: any) {
       <Button color="green" floated="right" onClick={handleClick}>
         保存
       </Button>
+      <DeleteModal
+        trigger={
+          <Button negative floated="right">
+            削除
+          </Button>
+        }
+        onDelete={handleDelete}
+      />
     </div>
   );
 }

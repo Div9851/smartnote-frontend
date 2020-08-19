@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import PostNote from "./PostNote";
 import SearchNotes from "./SearchNotes";
-import PostComplete from "./PostComplete";
 import EditNote from "./EditNote";
 import NotFound from "./NotFound";
 
@@ -20,9 +19,6 @@ function MainContent() {
       </Route>
       <Route path="/search">
         <SearchNotes />
-      </Route>
-      <Route path="/post_complete">
-        <PostComplete />
       </Route>
       <Route path="/edit/:noteID">
         <EditNote />

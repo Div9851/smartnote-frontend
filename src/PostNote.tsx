@@ -46,7 +46,8 @@ function PostNote(props: any) {
       console.error(error);
       return;
     }
-    history.push("/post_complete");
+    alert("メモを保存しました！");
+    history.push("/");
   };
   return (
     <div>
