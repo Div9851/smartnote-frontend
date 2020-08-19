@@ -3,9 +3,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import MainContent from "./MainContent";
 
-export default AppForPC;
+export default AppForLandscape;
 
-function AppForPC() {
+function AppForLandscape() {
   return (
     <Router>
       <div className="container">

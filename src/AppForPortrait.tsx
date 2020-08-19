@@ -5,9 +5,9 @@ import MainContent from "./MainContent";
 import SidebarItems from "./SidebarItems";
 import OpenSidebarButton from "./OpenSidebarButton";
 
-export default AppForSmartphone;
+export default AppForPortrait;
 
-function AppForSmartphone() {
+function AppForPortrait() {
   const [visible, setVisible] = useState(false);
 
   return (

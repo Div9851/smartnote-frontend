@@ -1,13 +1,13 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
-import AppForPC from "./AppForPC";
-import AppForSmartphone from "./AppForSmartphone";
+import AppForLandscape from "./AppForLandscape";
+import AppForPortrait from "./AppForPortrait";
 
 export default App;
 
 function App() {
-  const isSmartphone = useMediaQuery({
-    query: "(max-device-width: 480px)",
+  const isLandscapeMode = useMediaQuery({
+    query: "(orientation: landscape)",
   });
-  return isSmartphone ? <AppForSmartphone /> : <AppForPC />;
+  return isLandscapeMode ? <AppForLandscape /> : <AppForPortrait />;
 }

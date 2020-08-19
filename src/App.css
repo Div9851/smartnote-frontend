@@ -1,5 +1,5 @@
-/* for PC */
-@media (min-width: 480px) {
+/* 横向き */
+@media screen and (orientation: landscape) {
   .side-content {
     width: 10%;
   }
@@ -10,8 +10,8 @@
   }
 }
 
-/* for Smartphone */
-@media (max-width: 480px) {
+/* 縦向き */
+@media screen and (orientation: portrait) {
   #sidebar {
     height: 100vh;
   }
