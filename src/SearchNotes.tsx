@@ -70,15 +70,14 @@ function SearchNotes(props: any) {
   return (
     <div>
       <h1>メモを探す</h1>
-      <Input
-        className="search-text"
-        type="text"
-        value={searchText}
-        onChange={handleChange}
-      />
-      <span className="search-button">
-        <Button icon="search" onClick={handleClick} />
-      </span>
+      <div className="container">
+        <div className="search-text">
+          <Input type="text" fluid value={searchText} onChange={handleChange} />
+        </div>
+        <div className="search-button">
+          <Button icon="search" onClick={handleClick} />
+        </div>
+      </div>
       <Divider />
       <SearchResult data={searchResult} />
       <div className="pagination">
