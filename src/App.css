@@ -1,9 +1,31 @@
-.container {
-  display: flex;
+/* for PC */
+@media (min-width: 480px) {
+  .side-content {
+    width: 10%;
+  }
+
+  #sidebar {
+    width: 10%;
+    z-index: 1;
+  }
 }
 
-.side-content {
-  width: 10%;
+/* for Smartphone */
+@media (max-width: 480px) {
+  #sidebar {
+    height: 100vh;
+  }
+
+  .open-sidebar-button {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+}
+
+/* common */
+.container {
+  display: flex;
 }
 
 .main-content {
@@ -13,20 +35,6 @@
 
 .home {
   text-align: center;
-}
-
-.home-without-auth {
-  padding: 5em;
-  text-align: center;
-}
-
-.login-button {
-  margin-top: 1em;
-}
-
-#sidebar {
-  width: 10%;
-  z-index: 1;
 }
 
 .search-text {

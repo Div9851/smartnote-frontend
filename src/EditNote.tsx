@@ -7,13 +7,18 @@ import SimpleMDE from "react-simplemde-editor";
 export default withRouter(EditNote);
 
 function EditNote(props: any) {
-  const { getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const { history } = props;
   const [text, updateText] = useState("");
   const { noteID } = useParams();
 
   useEffect(() => {
     const f = async () => {
+      if (!isAuthenticated) {
+        alert("ログインして下さい");
+        history.push("/");
+        return;
+      }
       try {
         const token = await getAccessTokenSilently();
         const response = await fetch(
@@ -40,7 +45,7 @@ function EditNote(props: any) {
       }
     };
     f();
-  }, [getAccessTokenSilently, noteID]);
+  }, [getAccessTokenSilently, history, isAuthenticated, noteID]);
 
   const handleChange = (value: string) => {
     updateText(value);

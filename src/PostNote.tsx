@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { withRouter } from "react-router-dom";
 import { Button } from "semantic-ui-react";
@@ -7,9 +7,17 @@ import SimpleMDE from "react-simplemde-editor";
 export default withRouter(PostNote);
 
 function PostNote(props: any) {
-  const { getAccessTokenSilently } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const { history } = props;
   const [text, updateText] = React.useState("");
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      alert("ログインして下さい");
+      history.push("/");
+    }
+  }, [history, isAuthenticated]);
+
   const handleClick = async () => {
     try {
       const token = await getAccessTokenSilently();

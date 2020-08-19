@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { withRouter } from "react-router-dom";
 import { Button, Divider, Input, Pagination } from "semantic-ui-react";
 import SearchResult from "./SearchResult";
 
-export default SearchNotes;
+export default withRouter(SearchNotes);
 
-function SearchNotes() {
-  const { getAccessTokenSilently } = useAuth0();
+function SearchNotes(props: any) {
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { history } = props;
   const [searchText, updateSearchText] = React.useState("");
   const [searchResult, updateSearchResult] = React.useState(null);
   const [total, updateTotal] = React.useState(0);
   const [currentPage, updateCurrentPage] = React.useState(1);
   const pageSize = 5;
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      alert("ログインして下さい");
+      history.push("/");
+    }
+  });
 
   const handleChange = (e: any) => {
     updateSearchText(e.target.value);
