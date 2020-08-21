@@ -12,10 +12,11 @@ function AppForPortrait() {
 
   return (
     <Router>
-      <Sidebar.Pushable id="sidebar">
+      <Sidebar.Pushable>
         <Sidebar
           as={Menu}
           animation="overlay"
+          borderless
           icon
           inverted
           onHide={() => setVisible(false)}

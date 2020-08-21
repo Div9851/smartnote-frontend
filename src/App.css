@@ -12,10 +12,6 @@
 
 /* 縦向き */
 @media screen and (orientation: portrait) {
-  #sidebar {
-    height: 100vh;
-  }
-
   .open-sidebar-button {
     position: absolute;
     top: 1em;
