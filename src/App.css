@@ -24,6 +24,10 @@
 }
 
 /* common */
+pre {
+  white-space: pre-wrap;
+}
+
 .container {
   display: flex;
 }
