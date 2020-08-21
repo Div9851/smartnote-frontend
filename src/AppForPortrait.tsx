@@ -12,7 +12,7 @@ function AppForPortrait() {
 
   return (
     <Router>
-      <Sidebar.Pushable>
+      <Sidebar.Pushable id="sidebar">
         <Sidebar
           as={Menu}
           animation="overlay"
